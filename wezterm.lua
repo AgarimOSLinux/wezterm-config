@@ -3,11 +3,8 @@ local wezterm = require 'wezterm'
 return {
 term = 'wezterm',
 
---Font config
---font = wezterm.font 'Pragmasevka',
-
 font = wezterm.font_with_fallback({
-       "Pragmasevka",
+      "Pragmasevka",
        "feather",
         }),
 
