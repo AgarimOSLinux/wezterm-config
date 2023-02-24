@@ -17,9 +17,9 @@ hide_tab_bar_if_only_one_tab = true,  -- Smart tab bar [distraction-free mode]
 tab_bar_at_bottom = true,
 tab_max_width = 32,
 use_fancy_tab_bar = true,
-show_tab_index_in_tab_bar = true,
+show_tab_index_in_tab_bar = false,
 switch_to_last_active_tab_when_closing_tab = true,
-show_new_tab_button_in_tab_bar = true,
+show_new_tab_button_in_tab_bar = false,
 
 window_padding = {
   left = 10,
