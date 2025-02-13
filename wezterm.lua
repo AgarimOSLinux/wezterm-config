@@ -1,63 +1,56 @@
 local wezterm = require 'wezterm'
 
-return {
-term = 'wezterm',
+local config = wezterm.config_builder()
 
-font = wezterm.font_with_fallback({
-      "Pragmasevka",
-       "feather",
-        }),
+-- General
 
-font_size = 18.0,
-bold_brightens_ansi_colors = true,
+config.term = "wezterm"
+config.enable_wayland = true
+config.default_prog = {"/usr/bin/zsh", "-l"}
+config.audible_bell = "Disabled"
 
--- Tab
-enable_tab_bar = true,
-hide_tab_bar_if_only_one_tab = true,  -- Smart tab bar [distraction-free mode]
-tab_bar_at_bottom = true,
-tab_max_width = 32,
-use_fancy_tab_bar = false,
-show_tab_index_in_tab_bar = false,
-switch_to_last_active_tab_when_closing_tab = true,
-show_new_tab_button_in_tab_bar = false,
+-- Fonts configuration
 
-window_padding = {
-  left = 10,
-  right = 10,
-  top = 5,
-  bottom = 5,
-  },
+config.font = wezterm.font 'Ryan Term Extrabold'
+--config.font = wezterm.font 'Iosevka Rootiest v2 Extrabold'
+config.font_size = 11.0
+config.warn_about_missing_glyphs = false
 
-window_decorations = "RESIZE",
+-- Tabs configuration
+config.hide_tab_bar_if_only_one_tab = true
+config.tab_bar_at_bottom = true
+config.use_fancy_tab_bar = false
+config.switch_to_last_active_tab_when_closing_tab = true
+config.show_new_tab_button_in_tab_bar = false
 
--- Initial window size on startup
-initial_rows = 22,
-initial_cols = 72,
+--- Window configuration
 
-adjust_window_size_when_changing_font_size = true,
+config.color_scheme = 'Catppuccin Mocha'
+config.window_background_opacity = 0.84
+config.adjust_window_size_when_changing_font_size = true
+config.initial_rows = 24
+config.initial_cols = 100
 
---Scrollback config
-enable_scroll_bar = false,
---scrollback_lines = 5000, -- How many lines of scrollback you want to retain per tab (default is 3500)
+-- Cursor configuration
 
-default_cursor_style = "BlinkingBlock",
+config.default_cursor_style = "BlinkingBlock"
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
+config.cursor_blink_rate = 500
 
-enable_wayland = true,
+-- Keyboard
 
-use_ime = false,
+config.use_ime = false
+config.enable_kitty_keyboard = true
 
-default_prog = {"/usr/bin/zsh", "-l"}, -- Spawn a zsh shell in login mode
-default_cwd = "$HOME",
+-- Keybindings
 
-warn_about_missing_glyphs = false,
-check_for_updates = false,
-exit_behavior = "Close",
-audible_bell = "Disabled",
+config.keys = {
 
-color_scheme = 'Catppuccin Mocha',
-window_background_opacity = 0.88,
-
-keys = {
+       {
+        key = 'f',mods = 'ALT',
+        action = wezterm.action.ToggleFullScreen,
+        },
 
        {
         key = 'RightArrow',mods = 'CTRL',
@@ -68,5 +61,6 @@ keys = {
         key = 'DownArrow',mods = 'CTRL',
         action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain'},
         }
-        },
-}
+        }
+
+return config
