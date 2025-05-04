@@ -5,14 +5,13 @@ local config = wezterm.config_builder()
 -- General
 
 config.term = "wezterm"
-config.enable_wayland = true
+config.enable_wayland = false
 config.default_prog = {"/usr/bin/zsh", "-l"}
 config.audible_bell = "Disabled"
 
 -- Fonts configuration
 
-config.font = wezterm.font 'Ryan Term Extrabold'
---config.font = wezterm.font 'Iosevka Rootiest v2 Extrabold'
+config.font = wezterm.font 'JetBrains Maple Mono ExtraBold'
 config.font_size = 11.0
 config.warn_about_missing_glyphs = false
 
