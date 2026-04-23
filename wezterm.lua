@@ -8,7 +8,7 @@ config.audible_bell = "Disabled"
 
 -- Font configuration
 config.font = wezterm.font_with_fallback({
-    { family = "JetBrains Maple Mono Extrabold" },
+    "JetBrains Maple Mono Extrabold",
     "Symbols Nerd Font Mono",
     "Noto Color Emoji",
     "IBM Plex Mono",
@@ -90,4 +90,3 @@ config.keys = {
 }
 
 return config
-
